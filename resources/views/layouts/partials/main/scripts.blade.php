@@ -57,6 +57,10 @@
 <!-- plugins JS
     ============================================ -->
 <script src="{{asset('theme/js/plugins.js')}}"></script>
+<!--  chosen JS
+      ============================================ -->
+<script src="{{asset('theme/js/chosen/chosen.jquery.js')}}"></script>
+<script src="{{asset('theme/js/bootstrap-select/bootstrap-select.js')}}"></script>
 <!--  Chat JS
     ============================================ -->
 <script src="{{asset('theme/js/chat/moment.min.js')}}"></script>
@@ -64,6 +68,12 @@
 <!-- main JS
     ============================================ -->
 <script src="{{asset('theme/js/main.js')}}"></script>
+<script src="{{ asset('theme/ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+</script>
+{{--<script src="{{asset('theme/js/summernote/summernote-updated.min.js')}}"></script>
+<script src="{{asset('theme/js/summernote/summernote-active.js')}}"></script>--}}
 <!-- tawk chat JS
     ============================================ -->
 {{--

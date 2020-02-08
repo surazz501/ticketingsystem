@@ -21,5 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'DashboardController@logout')->name('log-out');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard','DashboardController@index');
+    Route::resource('ticket','TicketController');
+
+
 });
 

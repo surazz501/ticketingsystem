@@ -36,9 +36,11 @@
     <!-- jvectormap CSS
 		============================================ -->
     <link rel="stylesheet" href="{{asset('theme/css/jvectormap/jquery-jvectormap-2.0.3.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/css/chosen/chosen.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/css/bootstrap-select/bootstrap-select.css')}}">
     <!-- notika icon CSS
 		============================================ -->
-    {{--<link rel="stylesheet" href="{{asset('theme/css/notika-custom-icon.css')}}">--}}
+   <link rel="stylesheet" href="{{asset('theme/css/notika-custom-icon.css')}}">
     <!-- wave CSS
 		============================================ -->
     <link rel="stylesheet" href="{{asset('theme/css/wave/waves.min.css')}}">
@@ -48,10 +50,13 @@
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="{{asset('theme/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/css/custom.css')}}">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="{{asset('theme/css/responsive.css')}}">
+  {{--  <link rel="stylesheet" href="{{asset('theme/css/summernote/summernote.css')}}">--}}
     <!-- modernizr JS
 		============================================ -->
     <script src="{{asset('theme/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
 </head>
