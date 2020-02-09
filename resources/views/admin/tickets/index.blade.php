@@ -13,8 +13,8 @@
                             {{--  <p>Basic example without any additional modification classes</p>--}}
                         </div>
                         <div class="bsc-tbl">
-                            <table class="table table-sc-ex table-striped table-hover {{--table-bordered--}}">
-                                <thead class="thead-grey">
+                            <table class="table table-sc-ex {{--table-striped--}} table-hover {{--table-bordered--}}" {{--style="    box-shadow: 0 2px 10px rgba(0,0,0,.2);"--}}>
+                                <thead class="thead-green">
                                 <tr>
 
                                     <th>Subject</th>
@@ -25,29 +25,31 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($tickets as $ticket)
+                                    <tr>
+                                        <td><a href="{{route('ticket.show',$ticket->ticket_id)}}">
+                                                <div class="">
 
-                                <tr>
-                                    <td><a href="#2">
-                                        <div class="">
+                                                    <div class="media-body">
 
-                                            <div class="media-body">
-
-                                                <h4 class="title ">
-                                                    Upgrate my account
-                                                    <span class="pull-right label label-danger">new</span>
-                                                </h4>
-                                               <a href="#1"> <span><i class="fa fa-user"> Suraz Bhattarai</i></span></a>
-                                                <span><i class="fa fa-list-alt"> Technical help</i></span>
-                                                <span class="pull-right">#1123123</span>
-                                            </div>
-                                        </div>
-                                        </a>
-                                    </td>
-                                    <td>Normal</td>
-                                    <td>new</td>
-                                    <td>08/02/2020 6:00 PM</td>
-                                    <td>Suraz Bhattarai</td>
-                                </tr>
+                                                        <h4 class="title ">
+                                                            {!! $ticket->title !!}
+                                                            <span class="pull-right label label-danger">{{$ticket->status}}</span>
+                                                        </h4>
+                                                        <a href="#1" style=" color: inherit !important;"> <span><i
+                                                                        class="fa fa-user"> Suraz Bhattarai</i></span></a>
+                                                        <span><i class="fa fa-list-alt"> Category section </i></span>
+                                                        <span class="pull-right">#{!! $ticket->ticket_id !!}</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td>{{$ticket->priority}}</td>
+                                        <td>{{$ticket->status}}</td>
+                                        <td>{{$ticket->created_at}}</td>
+                                        <td>Suraz Bhattarai</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

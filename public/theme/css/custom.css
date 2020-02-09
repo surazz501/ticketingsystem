@@ -3,12 +3,18 @@
     background: #ddd;
 }
 
-.table a:link {
+.table td a:link {
     color: inherit !important;
 }
+/*a:link{
+    color:inherit!important;
+}*/
 
 .thead-grey {
     background: #eae3e3;
+}
+.thead-green {
+    background: #00c292;
 }
 
 /**{
@@ -45,4 +51,16 @@ html, body {
 .btn-theme-color {
     background-color: #00c292;
     color: white;
+}
+.padding-15{
+    padding:15px;
+}
+
+
+.conversation-list .conversation-text {
+    width: 90%;
+}
+.show-page-chat .ctext-wrap{
+    width: 687px;
+
 }

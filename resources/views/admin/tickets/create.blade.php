@@ -1,22 +1,5 @@
 @extends('layouts.main')
 @section('content')
-    <style>
-        .chosen-container-single .chosen-search input[type="text"] {
-            background: white url("{{asset('theme/css/chosen/chosen-sprite.png')}}") no-repeat 100% -20px;
-            /*background: url("
-
-        {{asset('theme/css/chosen/chosen-sprite.png')}}  ") no-repeat 100% -20px;
-      */
-        }
-
-        .chosen-rtl .chosen-search input[type="text"] {
-            background: white url("{{asset('theme/css/chosen/chosen-sprite.png')}}") no-repeat -30px -20px;
-            /*   background: url("
-
-        {{asset('theme/css/chosen/chosen-sprite.png')}}  ") no-repeat -30px -20px;
-      */
-        }
-    </style>
 
     <div class="form-element-area">
         <div class="container">
@@ -102,7 +85,7 @@
                             </div>
                         </div>--}}
                         <div class="form-example-int mg-t-15">
-                            <button type="submit" class="btn btn-success notika-btn-success waves-effect">Submit</button>
+                            <button type="submit" class="btn btn-theme-color">Submit</button>
                         </div>
                     </div>
                     </form>
@@ -111,3 +94,8 @@
         </div>
     </div>
 @endsection
+@section('push-script')
+    <script>
+        CKEDITOR.replace( 'summary-ckeditor' );
+    </script>
+    @stop

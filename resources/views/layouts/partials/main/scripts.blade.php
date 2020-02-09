@@ -69,9 +69,7 @@
     ============================================ -->
 <script src="{{asset('theme/js/main.js')}}"></script>
 <script src="{{ asset('theme/ckeditor/ckeditor.js') }}"></script>
-<script>
-    CKEDITOR.replace( 'summary-ckeditor' );
-</script>
+
 {{--<script src="{{asset('theme/js/summernote/summernote-updated.min.js')}}"></script>
 <script src="{{asset('theme/js/summernote/summernote-active.js')}}"></script>--}}
 <!-- tawk chat JS
