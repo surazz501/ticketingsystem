@@ -38,7 +38,7 @@
                                                         </h4>
                                                         <a href="#1" style=" color: inherit !important;"> <span><i
                                                                         class="fa fa-user"> Suraz Bhattarai</i></span></a>
-                                                        <span><i class="fa fa-list-alt"> Category section </i></span>
+                                                        <span><i class="fa fa-list-alt"> {{$ticket->category->name}} </i></span>
                                                         <span class="pull-right">#{!! $ticket->ticket_id !!}</span>
                                                     </div>
                                                 </div>

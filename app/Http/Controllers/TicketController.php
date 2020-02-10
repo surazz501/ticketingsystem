@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,7 @@ class TicketController extends Controller
     {
         //
         $categories = Category::get();
-        return view('admin.tickets.create',compact('categories'));
+        return view('admin.tickets.create', compact('categories'));
     }
 
     /**
@@ -59,7 +60,11 @@ class TicketController extends Controller
             'message' => $request->message,
             'status' => 'open',
         ]);
-        return redirect()->route('ticket.index');
+        /* $notification = array(
+             'message' => 'Ticket has been created successfully!',
+             'alert-type' => 'success'
+         );*/
+        return redirect()->route('ticket.index')/*->with($notification)*/ ;
     }
 
     /**
@@ -111,5 +116,56 @@ class TicketController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function fetchComments(Request $request)
+    {
+        if(request()->ajax()){
+            $ticket_id = $request->get('Id');
+
+            $comments_all = Comment::where('ticket_id', $ticket_id)->orderBy('id', 'desc')->get();
+          //  dd($comments_all);
+            $comment='';
+            foreach($comments_all as $comments){
+                $comment .='<ul class="conversation-list">
+                            <li class="clearfix">
+                                <div class="chat-avatar">
+                                    <img src="'.asset('\theme/images/default-user.jpg').'" alt="male" class="mCS_img_loaded">
+
+                                </div>
+                                <div class="conversation-text show-page-chat">
+                                    <div class="ctext-wrap">
+                                        <i>John Deo</i>
+                                        <span class="pull-left">
+                                            <p>
+                                           '.$comments->comment.'
+                                        </p>
+                                        </span>
+                                        <span class="pull-right" style="margin-top: 8px;"> '.$comments->created_at.'</span>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>';
+
+            }
+          //  dd($comment);
+            return json_encode(array('comment' => $comment));
+
+        }
+        }
+
+    public function storeComment(Request $request)
+    {
+
+        if (request()->ajax()) {
+
+            Comment::create([
+                'ticket_id' => $request['ticket_id'],
+                'user_id' => Auth::user()->id,
+                'comment' => $request['comment']
+            ]);
+            return ['success'=>'1','ticket_id'=>$request['ticket_id']];
+        }
     }
 }
