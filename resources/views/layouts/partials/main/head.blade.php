@@ -41,8 +41,12 @@
     <!-- notika icon CSS
 		============================================ -->
    <link rel="stylesheet" href="{{asset('theme/css/notika-custom-icon.css')}}">
+
+    <!-- notification CSS
+       ============================================ -->
+    <link rel="stylesheet" href="{{asset('theme/css/notification/notification.css')}}">
     <!-- wave CSS
-		============================================ -->
+       ============================================ -->
     <link rel="stylesheet" href="{{asset('theme/css/wave/waves.min.css')}}">
     <!-- main CSS
 		============================================ -->

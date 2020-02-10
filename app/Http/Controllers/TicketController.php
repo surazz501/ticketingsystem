@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,8 @@ class TicketController extends Controller
     public function create()
     {
         //
-        return view('admin.tickets.create');
+        $categories = Category::get();
+        return view('admin.tickets.create',compact('categories'));
     }
 
     /**
