@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/settings/category/store', 'SettingController@store_category')->name('settings.categories.store');
     Route::post('/ticket/comment/store','TicketController@storeComment')->name('store.comment');
     Route::get('/comments', 'TicketController@fetchComments')->name('fetch.comment');
+    Route::get('close-ticket','TicketController@close_ticket')->name('ticket.close');
 
 
 

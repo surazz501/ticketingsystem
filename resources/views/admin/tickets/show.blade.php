@@ -23,9 +23,15 @@
                     <div class="row">
                         <div class="tpgp-helper mg-t-30" style="min-height:200px;">
                             <div class="tpgp-hp-hd typography-mgn">
-                                <h2 class="mn-hd-s"><a href="{{--{{route('ticket.create')}}--}}"
-                                                       class="btn btn-info btn-xs {{--btn-theme-color--}}" style=""><i
-                                                class="fa fa-check"></i> Close Ticket</a></h2>
+                                <h2 class="mn-hd-s close-ticket-header">
+                                    @if($ticket->status=="open")<a href="#"
+                                                       class="btn btn-info btn-xs btn-close-ticket" style=""><i
+                                                class="fa fa-check"></i> Close Ticket</a>
+                                @else
+                                        <a href="#"
+                                           class="btn btn-info btn-xs btn-close-ticket" style=""><i
+                                                    class="fa fa-check"></i> Closed</a>
+                                @endif</h2>
 
                             </div>
                             <div class="tpgp-al-cl">
@@ -148,5 +154,21 @@
                 }
             });
         }
+
+        $(document).on('click','.btn-close-ticket',function(e){
+           // $(document).on("submit", "#comment-form",
+
+          /// var url='close/ticket';
+           $.ajax({
+               url:"{{route('ticket.close')}}",
+               method:'GET',
+              data:{ticket_id:ticket_id},
+               dataType:'json',
+               success:function(data){
+                   $('.btn-close-ticket').html('<i class="fa fa-check"></i> Closed');
+               }
+           });
+           e.preventDefault();
+        });
     </script>
 @endsection

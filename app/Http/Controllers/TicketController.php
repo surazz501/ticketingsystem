@@ -120,17 +120,17 @@ class TicketController extends Controller
 
     public function fetchComments(Request $request)
     {
-        if(request()->ajax()){
+        if (request()->ajax()) {
             $ticket_id = $request->get('Id');
 
             $comments_all = Comment::where('ticket_id', $ticket_id)->orderBy('id', 'desc')->get();
-          //  dd($comments_all);
-            $comment='';
-            foreach($comments_all as $comments){
-                $comment .='<ul class="conversation-list">
+            //  dd($comments_all);
+            $comment = '';
+            foreach ($comments_all as $comments) {
+                $comment .= '<ul class="conversation-list">
                             <li class="clearfix">
                                 <div class="chat-avatar">
-                                    <img src="'.asset('\theme/images/default-user.jpg').'" alt="male" class="mCS_img_loaded">
+                                    <img src="' . asset('\theme/images/default-user.jpg') . '" alt="male" class="mCS_img_loaded">
 
                                 </div>
                                 <div class="conversation-text show-page-chat">
@@ -138,10 +138,10 @@ class TicketController extends Controller
                                         <i>John Deo</i>
                                         <span class="pull-left">
                                             <p>
-                                           '.$comments->comment.'
+                                           ' . $comments->comment . '
                                         </p>
                                         </span>
-                                        <span class="pull-right" style="margin-top: 8px;"> '.$comments->created_at.'</span>
+                                        <span class="pull-right" style="margin-top: 8px;"> ' . $comments->created_at . '</span>
                                     </div>
 
                                 </div>
@@ -149,11 +149,11 @@ class TicketController extends Controller
                         </ul>';
 
             }
-          //  dd($comment);
+            //  dd($comment);
             return json_encode(array('comment' => $comment));
 
         }
-        }
+    }
 
     public function storeComment(Request $request)
     {
@@ -165,7 +165,23 @@ class TicketController extends Controller
                 'user_id' => Auth::user()->id,
                 'comment' => $request['comment']
             ]);
-            return ['success'=>'1','ticket_id'=>$request['ticket_id']];
+            return ['success' => '1', 'ticket_id' => $request['ticket_id']];
         }
+    }
+
+    public function close_ticket()
+    {
+        if (request()->ajax()) {
+
+            $ticket_id = request()->get('ticket_id');
+            $ticket = Ticket::where('ticket_id', $ticket_id)->first();
+            if ($ticket) {
+                $ticket->status = 'closed';
+                $ticket->save();
+                return ['success' => '1'];
+
+            }
+        }
+
     }
 }

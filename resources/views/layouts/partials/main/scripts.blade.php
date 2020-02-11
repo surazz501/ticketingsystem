@@ -72,6 +72,7 @@
 
 <script src="{{asset('theme/js/toastr.min.js')}}"></script>
 
+var AppUrl = "{{url('/')}}";
 {{--<script src="{{asset('theme/js/summernote/summernote-updated.min.js')}}"></script>
 <script src="{{asset('theme/js/summernote/summernote-active.js')}}"></script>--}}
 <!-- tawk chat JS

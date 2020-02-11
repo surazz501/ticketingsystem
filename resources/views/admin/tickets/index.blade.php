@@ -13,7 +13,7 @@
                             {{--  <p>Basic example without any additional modification classes</p>--}}
                         </div>
                         <div class="bsc-tbl">
-                            <table class="table table-sc-ex {{--table-striped--}} table-hover {{--table-bordered--}}" {{--style="    box-shadow: 0 2px 10px rgba(0,0,0,.2);"--}}>
+                            <table class="table table-sc-ex table-striped table-hover {{--table-bordered--}}" {{--style="    box-shadow: 0 2px 10px rgba(0,0,0,.2);"--}}>
                                 <thead class="thead-green">
                                 <tr>
 
